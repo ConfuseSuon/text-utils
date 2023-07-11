@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Navbar from "./components/Navbar";
+import TextForm from "./components/TextForm";
+import About from "./components/About";
+import Learn from "./Learn";
+import React, { useState } from "react";
 
-function App() {
+const App = () => {
+  const [mode, setMode] = useState(false);
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{
+      height: '100vh',
+      background: mode? 'black' : 'white'
+    }}>
+    
+      <Navbar title="TextUtils" aboutText="About us" mode={mode} setMode={setMode}/>
+      {/* <Navbar/> */}
+      <div className="container">
+        {/* <Learn /> */}
+        <TextForm heading="Enter the text to anaylze below" mode={mode} setMode={setMode} />
+        {/* <About /> */}
+      </div>
     </div>
   );
-}
+};
 
 export default App;
